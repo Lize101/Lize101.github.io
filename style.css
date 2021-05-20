@@ -136,6 +136,29 @@ h4 a:hover {
 	color: #990000;
 }
 
+.experiencesBtn {
+	padding: 5 0 5 0;
+	width: 100%;
+	font-size: 30px;
+	pointer-events: auto;
+	background-color: white;
+	margin: 3% 2%;
+}
+
+.experiencesBtn:hover {
+	color: #8e0e0e;
+	border: 3px solid #8e0e0e;
+} 
+
+.experienceDetails {
+	border: 1px solid lightgray;
+	margin: 6% 3% 5% 6%;
+	padding: 2%;
+	display: none;
+	max-height: 255px;
+	overflow: scroll;
+}
+
 h3:after { 
 	width: 100px;
 	height: 2px;
