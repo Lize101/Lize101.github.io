@@ -51,7 +51,7 @@ body {
 }
 
 .title h2 {
-	color: beige;
+	color: beige !important;
 	text-align: center;
 	margin-bottom: 25px;
 }
