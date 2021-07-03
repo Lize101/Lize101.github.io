@@ -44,16 +44,42 @@ body {
 	text-align: center;
 	font-size: 400%;
 	margin-bottom: 25px;
+	transition-property: font-size;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+	animation: bouncein 2s;
 }
 
 .title h1:hover {
 	font-size: 70px;
 }
 
+@keyframes bouncein {
+	0% {
+		transform: scale(0.5);
+	}
+	66% {
+		transform: scale(1.4);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 .title h2 {
 	color: beige !important;
 	text-align: center;
 	margin-bottom: 25px;
+	animation: slidein 2s ease-in 0.95s backwards;
+}
+
+@keyframes slidein {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0%);
+	}
 }
 
 .nav {
@@ -93,15 +119,27 @@ body {
 	margin: 5px;
 }
 
-.para2, .bespoke1 {
-	margin-bottom: 30px;
-	font-size: 18px;
-}
-
-.para2 {
+.para2, .bigPara, .para2noanimation {
 	width: 70%;
 	margin-left: 15%;
 	text-align: center;
+}
+
+.para2 {
+	visibility: hidden;
+}
+
+.para2.active {
+	width: 70%;
+	margin-left: 15%;
+	text-align: center;
+	animation: slidein 2s;
+	visibility: visible;
+}
+
+.para2, .para2noanimation, .bespoke1, .bigPara {
+	margin-bottom: 30px;
+	font-size: 18px;
 }
 
 .para3 {
@@ -123,11 +161,39 @@ body {
 
 .imgFormat {
 	margin: 4% 0 4% 3%;
+	display: none;
+}
+
+.imgFormat.active {
+	margin: 4% 0 4% 3%;
+	animation: scaled 2s 2s;
+	display: inline-block;
 }
 
 .imgCircle {
 	width: 100%;
 	border-radius: 50%;
+	visibility: hidden;
+}
+
+.imgCircle.active {
+	width: 100%;
+	border-radius: 50%;
+	visibility: visible;
+	animation: scaled 3s forwards;
+}
+
+@keyframes scaled {
+	0% {
+		transform: scale(0.1);
+		opacity: 0;
+	}
+	66% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 h2 a:hover {
@@ -142,6 +208,9 @@ h2 a:hover {
 	pointer-events: auto;
 	background-color: white;
 	margin: 3% 2%;
+	transition-property: color;
+	transition-property: border;
+	transition-duration: 2s;
 }
 
 .experiencesBtn:hover {
@@ -237,7 +306,20 @@ h3:after {
 	.imgFormat {
 		margin: 5% 0 2% 5%;
 		width: 35%;
+		display: none;
+	}
+
+	@keyframes noscaled {
+		100% {
+			transform: scale(1);
+		}
+	}
+	
+	.imgFormat.active {
+		margin: 5% 0 2% 5%;
+		width: 35%;
 		display: inline-block;
+		animation: noscaled 2s;
 	}
 
 	.imgCircle {
